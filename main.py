@@ -11,5 +11,6 @@ if __name__ == '__main__':
 
     mainWindow = login()
     mainWindow.show()
-    # 进入程序的主循环，并通过exit函数确保主循环安全结束(该释放资源的一定要释放)
+
+    # 进入程序的主循环
     sys.exit(app.exec_())

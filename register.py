@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 
 from registerWindow import Ui_Register
+from database import dataBase
 
 
 class register(Ui_Register, QMainWindow):
@@ -27,6 +28,13 @@ class register(Ui_Register, QMainWindow):
             return
 
         # 最后和数据库对比，如果用户名不重复，即可注册
-
+        database = dataBase()
+        res = database.select("userinfo", "userName", username)
+        if res[0] > 0: # res[0]是返回项目个数
+            QMessageBox.information(self, "警告", "用户名已存在", QMessageBox.Ok)
+            return
+        userRegInfo = [username, passwd]
+        database.addUser(userRegInfo)
+        database.update()
         QMessageBox.information(self, '注册', '注册成功', QMessageBox.Ok)
         self.close()
