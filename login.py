@@ -78,7 +78,7 @@ class login(Ui_Login, QMainWindow):
             username = self.usernameEdit.text()
             if self.userState == 1:
                 QMessageBox.information(self, '注意', '管理员用户', QMessageBox.Ok)
-                self.nextWindow = admin()
+                self.nextWindow = admin(username=username)
             else:
                 QMessageBox.information(self, '注意', '普通用户', QMessageBox.Ok)
                 self.nextWindow = user(username=username)

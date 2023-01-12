@@ -31,6 +31,9 @@ class user(Ui_userWindow, QMainWindow):
         self.witnessBtn.clicked.connect(self.switch)
         self.feedBtn.clicked.connect(self.switch)
 
+        self.addWitButton.clicked.connect(self.addWitness)
+        self.addFeedButton.clicked.connect(self.addFeed)
+
     def switch(self):
         sender = self.sender()
         if sender.text() == '猫猫花名册':
@@ -45,6 +48,40 @@ class user(Ui_userWindow, QMainWindow):
         cnt, cat = database.selectAll('cat')
         self.witCatNameBox.addItems(a[4] for a in cat)
         self.feedCatNameBox.addItems(a[4] for a in cat)
+
+    def addWitness(self):
+        userName = self.username
+        catName = self.witCatNameBox.currentText()
+        locName = self.witLocBox.currentText()
+
+        database = dataBase()
+        userNum = database.getUserNum(userName)
+        catNum = database.getCatNum(catName)
+        locNum = database.getLocNum(locName)
+
+        database.addWitness(userNum, locNum, catNum)
+        database.update()
+        QMessageBox.information(self, '提示', '添加成功', QMessageBox.Ok)
+
+        self.showWitness()
+
+    def addFeed(self):
+        userName = self.username
+        catName = self.feedCatNameBox.currentText()
+        locName = self.feedLocBox.currentText()
+        foodName = self.feedFoodBox.currentText()
+
+        database = dataBase()
+        userNum = database.getUserNum(userName)
+        catNum = database.getCatNum(catName)
+        locNum = database.getLocNum(locName)
+        foodNum = database.getFoodNum(foodName)
+
+        database.addFeed(foodNum, catNum, locNum, userNum)
+        database.update()
+        QMessageBox.information(self, '提示', '添加成功', QMessageBox.Ok)
+
+        self.showFeed()
 
     def showCat(self):
         thread = Thread(target=self.getCatView())

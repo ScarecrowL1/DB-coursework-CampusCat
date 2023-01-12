@@ -13,7 +13,7 @@ class admin(Ui_adminWindow, QMainWindow):
     sig_wit = pyqtSignal(list)
     sig_feed = pyqtSignal(list)
 
-    def __init__(self):
+    def __init__(self, username):
         super(admin, self).__init__()
         self.setupUi(self)
         self.activateButton()
@@ -25,6 +25,7 @@ class admin(Ui_adminWindow, QMainWindow):
         self.showCat()
         self.showWitness()
         self.showFeed()
+        self.username = username
         self.newAdminWindow = None
 
     def activateButton(self):
@@ -35,6 +36,8 @@ class admin(Ui_adminWindow, QMainWindow):
         self.newAdminBtn.clicked.connect(self.newAdmin)
 
         self.addCatButton.clicked.connect(self.addCat)
+        self.addWitButton.clicked.connect(self.addWitness)
+        self.addFeedBtn.clicked.connect(self.addFeed)
 
     def switch(self):
         sender = self.sender()
@@ -106,7 +109,7 @@ class admin(Ui_adminWindow, QMainWindow):
 
         database.addCat(vacNum, raceNum, locNum, catName, catGender, catOther)
         database.update()
-        QMessageBox.information(self, 'Tips', '添加成功', QMessageBox.Ok)
+        QMessageBox.information(self, '提示', '添加成功', QMessageBox.Ok)
 
         self.addCatNameEdit.clear()
         self.addOtherEdit.clear()
@@ -164,3 +167,39 @@ class admin(Ui_adminWindow, QMainWindow):
             for j in range(column):
                 item = self.feedTable.item(i, j)
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+
+
+    def addWitness(self):
+        userName = self.username
+        catName = self.witCatNameBox.currentText()
+        locName = self.witLocBox.currentText()
+
+        database = dataBase()
+        userNum = database.getUserNum(userName)
+        catNum = database.getCatNum(catName)
+        locNum = database.getLocNum(locName)
+
+        database.addWitness(userNum, locNum, catNum)
+        database.update()
+        QMessageBox.information(self, '提示', '添加成功', QMessageBox.Ok)
+
+        self.showWitness()
+
+    def addFeed(self):
+        userName = self.username
+        catName = self.feedCatBox.currentText()
+        locName = self.feedLocBox.currentText()
+        foodName = self.feedFoodBox.currentText()
+
+        database = dataBase()
+        userNum = database.getUserNum(userName)
+        catNum = database.getCatNum(catName)
+        locNum = database.getLocNum(locName)
+        foodNum = database.getFoodNum(foodName)
+
+        database.addFeed(foodNum, catNum, locNum, userNum)
+        database.update()
+        QMessageBox.information(self, '提示', '添加成功', QMessageBox.Ok)
+
+        self.showFeed()
+

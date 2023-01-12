@@ -8,6 +8,7 @@ class register(Ui_Register, QMainWindow):
     def __init__(self):
         super(register, self).__init__()
         self.setupUi(self)
+        self.setWindowTitle('注册')
         self.noButton.clicked.connect(self.close)
         self.yesButton.clicked.connect(self.register_)
 

@@ -85,6 +85,24 @@ class dataBase:
         res = self._cur.fetchall()
         return res[0][0]
 
+    def getUserNum(self, name):
+        sql = "select userNum from userinfo where userName = '{}'".format(name)
+        self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return res[0][0]
+
+    def getCatNum(self, name):
+        sql = "select catNum from cat where catName = '{}'".format(name)
+        self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return res[0][0]
+
+    def getFoodNum(self, name):
+        sql = "select foodNum from food where foodName = '{}'".format(name)
+        self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return res[0][0]
+
     def addCat(self, vacNum, raceNum, locNum, catName, catGender, catOther):
         sql = "insert into cat (vacNum, raceNum, locNum, catName, catGender, catOther) " \
               "values ({}, {}, {}, '{}', '{}','{}')" \
@@ -92,13 +110,13 @@ class dataBase:
         self._cur.execute(sql)
 
     def addFeed(self, foodNum, catNum, locNum, userNum):
-        sql = "insert into feedinfo (foodNum, catNum, locNum, userNum)) " \
+        sql = "insert into feedinfo (foodNum, catNum, locNum, userNum) " \
               "values ({}, {}, {}, {})" \
             .format(foodNum, catNum, locNum, userNum)
         self._cur.execute(sql)
 
     def addWitness(self, userNum, locNum, catNum):
-        sql = "insert into register (userNum, locNum, catNum) " \
+        sql = "insert into witness (userNum, locNum, catNum) " \
               "values ({}, {}, {})" \
             .format(userNum, locNum, catNum)
         self._cur.execute(sql)

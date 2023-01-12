@@ -57,7 +57,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QTableWidget" name="catTabel">
@@ -217,11 +217,6 @@
       <item>
        <property name="text">
         <string>荔园6~10栋</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>新建项目</string>
        </property>
       </item>
       <item>
@@ -404,11 +399,6 @@
       </item>
       <item>
        <property name="text">
-        <string>新建项目</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
         <string>主楼以及活动中心</string>
        </property>
       </item>
@@ -444,7 +434,7 @@
       </property>
       <item>
        <property name="text">
-        <string>猫粮一号</string>
+        <string>猫粮1号</string>
        </property>
       </item>
       <item>
