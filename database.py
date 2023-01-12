@@ -10,8 +10,9 @@ class dataBase:
 
         # 使用 fetchone() 方法获取单条数据.
         data = self._cur.fetchone()
+        print('mysql版本：')
         print(data)
-        print("数据库连接成功！")
+        print("已触发数据库访问")
 
     def update(self):
         self._conn.commit()

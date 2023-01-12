@@ -34,6 +34,7 @@ class register(Ui_Register, QMainWindow):
             QMessageBox.information(self, "警告", "用户名已存在", QMessageBox.Ok)
             return
         userRegInfo = [username, passwd]
+        # 用户权限userState应为不能为空，所以添加用户信息时要添加userState，该过程已经在addUser()上实现
         database.addUser(userRegInfo)
         database.update()
         QMessageBox.information(self, '注册', '注册成功', QMessageBox.Ok)
