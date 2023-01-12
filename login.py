@@ -74,13 +74,12 @@ class login(Ui_Login, QMainWindow):
             QMessageBox.warning(self, '警告', '用户名或密码错误', QMessageBox.Ok)
             return
         if argv == 'pass':
-            QMessageBox.information(self, '警告', '验证成功', QMessageBox.Ok)
             username = self.usernameEdit.text()
             if self.userState == 1:
-                QMessageBox.information(self, '注意', '管理员用户', QMessageBox.Ok)
+                QMessageBox.information(self, '欢迎使用', '管理员用户 '+username+' 你好', QMessageBox.Ok)
                 self.nextWindow = admin(username=username)
             else:
-                QMessageBox.information(self, '注意', '普通用户', QMessageBox.Ok)
+                QMessageBox.information(self, '欢迎使用', '普通用户 '+username+' 你好', QMessageBox.Ok)
                 self.nextWindow = user(username=username)
 
             self.nextWindow.show()

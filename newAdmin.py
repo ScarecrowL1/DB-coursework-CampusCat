@@ -7,6 +7,7 @@ class newAdmin(Ui_addAdminWindow, QWidget):
     def __init__(self):
         super(newAdmin, self).__init__()
         self.setupUi(self)
+        self.setWindowTitle('新增管理员')
         self.noButton.clicked.connect(self.close)
         self.yesButton.clicked.connect(self.confirmAdmin)
 
