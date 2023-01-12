@@ -57,7 +57,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QTableWidget" name="catTabel">
@@ -164,16 +164,6 @@
        <string>打卡地点：</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="witLocBox">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>100</y>
-        <width>151</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
@@ -209,6 +199,56 @@
       <property name="text">
        <string>提交</string>
       </property>
+     </widget>
+     <widget class="QComboBox" name="witLocBox">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>100</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>荔园1~5栋</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>荔园6~10栋</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>新建项目</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>主楼以及活动中心</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>T3~T5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>T2、T6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>运动场</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>研究生教学区</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
@@ -317,16 +357,6 @@
        <string>投喂食物：</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="feedFoodBox">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>230</y>
-        <width>171</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
@@ -338,16 +368,6 @@
       </property>
       <property name="text">
        <string>投喂地点：</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="feedLocBox">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>320</y>
-        <width>171</width>
-        <height>41</height>
-       </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="addFeedButton">
@@ -362,6 +382,86 @@
       <property name="text">
        <string>提交</string>
       </property>
+     </widget>
+     <widget class="QComboBox" name="feedLocBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>320</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>荔园1~5栋</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>荔园6~10栋</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>新建项目</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>主楼以及活动中心</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>T3~T5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>T2、T6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>运动场</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>研究生教学区</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="feedFoodBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>230</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>猫粮一号</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>猫用奥利奥</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>猫用饼干</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>喵比克</string>
+       </property>
+      </item>
      </widget>
     </widget>
    </widget>

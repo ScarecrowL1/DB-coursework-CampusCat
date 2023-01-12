@@ -1,10 +1,10 @@
-
 from PyQt5.QtWidgets import *
 
 from database import dataBase
 from userWindow import Ui_userWindow
-class user(Ui_userWindow, QMainWindow):
 
+
+class user(Ui_userWindow, QMainWindow):
 
     def __init__(self, username):
         super(user, self).__init__()
@@ -12,6 +12,7 @@ class user(Ui_userWindow, QMainWindow):
         self.setWindowTitle('校园猫管理平台')
         self.username = username
         self.activateButton()
+        self.fillBox()
 
     def activateButton(self):
         self.catinfoBtn.clicked.connect(self.switch)
@@ -27,8 +28,11 @@ class user(Ui_userWindow, QMainWindow):
         if sender.text() == '记录我的投喂':
             self.stackedWidget.setCurrentIndex(2)
 
+    def fillBox(self):
+        database = dataBase()
+        cnt, cat = database.selectAll('cat')
+        self.witCatNameBox.addItems(a[4] for a in cat)
+        self.feedCatNameBox.addItems(a[4] for a in cat)
+
     def getCatView(self):
         database = dataBase()
-
-
-

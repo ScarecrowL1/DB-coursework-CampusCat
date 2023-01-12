@@ -1,6 +1,8 @@
 from adminWindow import Ui_adminWindow
+from database import dataBase
 from newAdmin import newAdmin
 from PyQt5.QtWidgets import *
+
 
 
 class admin(Ui_adminWindow, QMainWindow):
@@ -9,7 +11,9 @@ class admin(Ui_adminWindow, QMainWindow):
         super(admin, self).__init__()
         self.setupUi(self)
         self.activateButton()
+        self.fillBox()
         self.newAdminWindow = None
+
 
     def activateButton(self):
         self.catinfoBtn.clicked.connect(self.switch)
@@ -29,3 +33,9 @@ class admin(Ui_adminWindow, QMainWindow):
     def newAdmin(self):
         self.newAdminWindow = newAdmin()
         self.newAdminWindow.show()
+
+    def fillBox(self):
+        database = dataBase()
+        cnt, cat = database.selectAll('cat')
+        self.witCatNameBox.addItems(a[4] for a in cat)
+        self.feedCatBox.addItems(a[4] for a in cat)
