@@ -39,3 +39,7 @@ class dataBase:
     def addUser(self, userRegInfo):
         sql = "insert into userinfo (userName, userPassword, userState) values (%s, %s, 0)"  # 默认注册普通用户
         self._cur.execute(sql, userRegInfo)
+
+    def addAdmin(self, newAdminName):
+        sql = "UPDATE `campuscat`.`userinfo` SET `userState` = '1' WHERE (`userName` = '{}');".format(newAdminName)
+        self._cur.execute(sql)

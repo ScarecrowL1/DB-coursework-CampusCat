@@ -1,4 +1,5 @@
 from adminWindow import Ui_adminWindow
+from newAdmin import newAdmin
 from PyQt5.QtWidgets import *
 
 
@@ -8,11 +9,13 @@ class admin(Ui_adminWindow, QMainWindow):
         super(admin, self).__init__()
         self.setupUi(self)
         self.activateButton()
+        self.newAdminWindow = None
 
     def activateButton(self):
         self.catinfoBtn.clicked.connect(self.switch)
         self.witnessBtn.clicked.connect(self.switch)
         self.feedBtn.clicked.connect(self.switch)
+        self.newAdminBtn.clicked.connect(self.newAdmin)
 
     def switch(self):
         sender = self.sender()
@@ -22,3 +25,7 @@ class admin(Ui_adminWindow, QMainWindow):
             self.stackedWidget.setCurrentIndex(1)
         if sender.text() == '记录我的投喂':
             self.stackedWidget.setCurrentIndex(2)
+
+    def newAdmin(self):
+        self.newAdminWindow = newAdmin()
+        self.newAdminWindow.show()
