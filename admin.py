@@ -54,6 +54,10 @@ class admin(Ui_adminWindow, QMainWindow):
         self.newAdminWindow.show()
 
     def fillBox(self):
+
+        self.feedCatBox.clear()
+        self.witCatNameBox.clear()
+
         database = dataBase()
         cnt, cat = database.selectAll('cat')
         self.witCatNameBox.addItems(a[4] for a in cat)
@@ -126,6 +130,7 @@ class admin(Ui_adminWindow, QMainWindow):
         self.addCatNameEdit.clear()
         self.addOtherEdit.clear()
         self.AddCatRaceEdit.clear()
+        self.fillBox()
         self.showCat()
 
     def showWitness(self):
