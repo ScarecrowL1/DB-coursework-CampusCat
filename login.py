@@ -76,12 +76,6 @@ class login(Ui_Login, QMainWindow):
         if argv == 'pass':
             QMessageBox.information(self, '警告', '验证成功', QMessageBox.Ok)
             username = self.usernameEdit.text()
-            # if self.admin == 1:
-            #     self.main_window = adminMainWindow()
-            # else:
-            #     self.main_window = userMainWindow(username=username)
-            # self.main_window.show()
-            # self.close()
             if self.userState == 1:
                 QMessageBox.information(self, '注意', '管理员用户', QMessageBox.Ok)
                 self.nextWindow = admin()

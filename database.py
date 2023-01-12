@@ -12,7 +12,7 @@ class dataBase:
         data = self._cur.fetchone()
         print('mysql版本：')
         print(data)
-        print("已触发数据库访问")
+        print("连接数据库正常")
 
     def update(self):
         self._conn.commit()
