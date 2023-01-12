@@ -671,11 +671,6 @@
       </item>
       <item>
        <property name="text">
-        <string>新建项目</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
         <string>主楼以及活动中心</string>
        </property>
       </item>

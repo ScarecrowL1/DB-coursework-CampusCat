@@ -35,6 +35,11 @@ class dataBase:
         res = self._cur.fetchall()
         return count, res
 
+    def addRace(self, name):
+        sql = "insert into catrace (raceName) values ('{}')".format(name)
+        self._cur.execute(sql)
+
+
     # 用于注册
     def addUser(self, userRegInfo):
         sql = "insert into userinfo (userName, userPassword, userState) values (%s, %s, 0)"  # 默认注册普通用户
@@ -61,3 +66,39 @@ class dataBase:
         count = self._cur.execute(sql)
         res = self._cur.fetchall()
         return count, res
+
+    def getVacNum(self, name):
+        sql = "select vacNum from vacinfo where vacState = '{}'".format(name)
+        self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return res[0][0]
+
+    def getRaceNum(self, name):
+        sql = "select raceNum from catrace where raceName = '{}'".format(name)
+        self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return res[0][0]
+
+    def getLocNum(self, name):
+        sql = "select locNum from location where locName = '{}'".format(name)
+        self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return res[0][0]
+
+    def addCat(self, vacNum, raceNum, locNum, catName, catGender, catOther):
+        sql = "insert into cat (vacNum, raceNum, locNum, catName, catGender, catOther) " \
+              "values ({}, {}, {}, '{}', '{}','{}')" \
+            .format(vacNum, raceNum, locNum, catName, catGender, catOther)
+        self._cur.execute(sql)
+
+    def addFeed(self, foodNum, catNum, locNum, userNum):
+        sql = "insert into feedinfo (foodNum, catNum, locNum, userNum)) " \
+              "values ({}, {}, {}, {})" \
+            .format(foodNum, catNum, locNum, userNum)
+        self._cur.execute(sql)
+
+    def addWitness(self, userNum, locNum, catNum):
+        sql = "insert into register (userNum, locNum, catNum) " \
+              "values ({}, {}, {})" \
+            .format(userNum, locNum, catNum)
+        self._cur.execute(sql)

@@ -8,7 +8,6 @@ from newAdmin import newAdmin
 from PyQt5.QtWidgets import *
 
 
-
 class admin(Ui_adminWindow, QMainWindow):
     sig_cat = pyqtSignal(list)
 
@@ -16,17 +15,20 @@ class admin(Ui_adminWindow, QMainWindow):
         super(admin, self).__init__()
         self.setupUi(self)
         self.activateButton()
+        self.setWindowTitle('校园猫管理平台（管理员端）')
         self.fillBox()
         self.sig_cat.connect(self.genCatTable)
         self.showCat()
         self.newAdminWindow = None
 
-
     def activateButton(self):
         self.catinfoBtn.clicked.connect(self.switch)
         self.witnessBtn.clicked.connect(self.switch)
         self.feedBtn.clicked.connect(self.switch)
+
         self.newAdminBtn.clicked.connect(self.newAdmin)
+
+        self.addCatButton.clicked.connect(self.addCat)
 
     def switch(self):
         sender = self.sender()
@@ -72,3 +74,35 @@ class admin(Ui_adminWindow, QMainWindow):
             for j in range(column):
                 item = self.catTabel.item(i, j)
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+
+    def addCat(self):
+        catName = self.addCatNameEdit.text()
+        catGender = self.addCatGenderBox.currentText()
+        catRace = self.AddCatRaceEdit.text()
+        catLoc = self.addLocBox.currentText()
+        catVac = self.addCatVacBox.currentText()
+        catOther = self.addOtherEdit.toPlainText()
+
+        if '' in [catName, catRace]:
+            QMessageBox.information(self, '提示', '除了备注都是必填~请检查表单', QMessageBox.Ok)
+            return
+        database = dataBase()
+        cnt, res = database.select('cat', 'catName', catName)
+        if cnt > 0:
+            QMessageBox.information(self, '提示', '该猫已存在，或与档案内的猫重名', QMessageBox.Ok)
+        cnt, res = database.select('catrace', 'raceName', catRace)
+        if cnt == 0:
+            database.addRace(catRace)
+
+        raceNum = database.getRaceNum(catRace)
+        locNum = database.getLocNum(catLoc)
+        vacNum = database.getVacNum(catVac)
+
+        database.addCat(vacNum, raceNum, locNum, catName, catGender, catOther)
+        database.update()
+        QMessageBox.information(self, 'Tips', '添加成功', QMessageBox.Ok)
+
+        self.addCatNameEdit.clear()
+        self.addOtherEdit.clear()
+        self.AddCatRaceEdit.clear()
+        self.showCat()
