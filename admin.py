@@ -10,6 +10,8 @@ from PyQt5.QtWidgets import *
 
 class admin(Ui_adminWindow, QMainWindow):
     sig_cat = pyqtSignal(list)
+    sig_wit = pyqtSignal(list)
+    sig_feed = pyqtSignal(list)
 
     def __init__(self):
         super(admin, self).__init__()
@@ -18,7 +20,11 @@ class admin(Ui_adminWindow, QMainWindow):
         self.setWindowTitle('校园猫管理平台（管理员端）')
         self.fillBox()
         self.sig_cat.connect(self.genCatTable)
+        self.sig_wit.connect(self.genWitTable)
+        self.sig_feed.connect(self.genFeedTable)
         self.showCat()
+        self.showWitness()
+        self.showFeed()
         self.newAdminWindow = None
 
     def activateButton(self):
@@ -106,3 +112,55 @@ class admin(Ui_adminWindow, QMainWindow):
         self.addOtherEdit.clear()
         self.AddCatRaceEdit.clear()
         self.showCat()
+
+    def showWitness(self):
+        thread = Thread(target=self.getWitView())
+        thread.start()
+
+    def getWitView(self):
+        database = dataBase()
+        cnt, res = database.getWitView()
+        self.sig_wit.emit([cnt, res])
+
+    def genWitTable(self, res):
+        witView = res[1]  # res第0个是cnt，第1个是集合的集合
+        column = len(witView[0])  # 列数
+        row = 0
+        for info in witView:
+            if self.witnessTable.rowCount() <= row:
+                self.witnessTable.insertRow(row)
+            for i in range(column):
+                itemValue = info[i]
+                item = QTableWidgetItem(str(itemValue))
+                self.witnessTable.setItem(row, i, item)
+            row = row + 1
+        for i in range(row):
+            for j in range(column):
+                item = self.witnessTable.item(i, j)
+                item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+
+    def showFeed(self):
+        thread = Thread(target=self.getFeedView())
+        thread.start()
+
+    def getFeedView(self):
+        database = dataBase()
+        cnt, res = database.getFeedView()
+        self.sig_feed.emit([cnt, res])
+
+    def genFeedTable(self, res):
+        FeedView = res[1]  # res第0个是cnt，第1个是集合的集合
+        column = len(FeedView[0])  # 列数
+        row = 0
+        for info in FeedView:
+            if self.feedTable.rowCount() <= row:
+                self.feedTable.insertRow(row)
+            for i in range(column):
+                itemValue = info[i]
+                item = QTableWidgetItem(str(itemValue))
+                self.feedTable.setItem(row, i, item)
+            row = row + 1
+        for i in range(row):
+            for j in range(column):
+                item = self.feedTable.item(i, j)
+                item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
