@@ -244,7 +244,7 @@ class Ui_adminWindow(object):
         adminWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(adminWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(adminWindow)
 
     def retranslateUi(self, adminWindow):
@@ -279,7 +279,7 @@ class Ui_adminWindow(object):
         self.addLocBox.setItemText(1, _translate("adminWindow", "荔园6~10栋"))
         self.addLocBox.setItemText(2, _translate("adminWindow", "主楼以及活动中心"))
         self.addLocBox.setItemText(3, _translate("adminWindow", "T3~T5"))
-        self.addLocBox.setItemText(4, _translate("adminWindow", "T2、T6"))
+        self.addLocBox.setItemText(4, _translate("adminWindow", "T2,T6"))
         self.addLocBox.setItemText(5, _translate("adminWindow", "运动场"))
         self.addLocBox.setItemText(6, _translate("adminWindow", "研究生教学区"))
         self.label_5.setText(_translate("adminWindow", "常出现地点："))
@@ -305,7 +305,7 @@ class Ui_adminWindow(object):
         self.witLocBox.setItemText(1, _translate("adminWindow", "荔园6~10栋"))
         self.witLocBox.setItemText(2, _translate("adminWindow", "主楼以及活动中心"))
         self.witLocBox.setItemText(3, _translate("adminWindow", "T3~T5"))
-        self.witLocBox.setItemText(4, _translate("adminWindow", "T2、T6"))
+        self.witLocBox.setItemText(4, _translate("adminWindow", "T2,T6"))
         self.witLocBox.setItemText(5, _translate("adminWindow", "运动场"))
         self.witLocBox.setItemText(6, _translate("adminWindow", "研究生教学区"))
         item = self.feedTable.horizontalHeaderItem(0)
@@ -334,6 +334,6 @@ class Ui_adminWindow(object):
         self.feedLocBox.setItemText(1, _translate("adminWindow", "荔园6~10栋"))
         self.feedLocBox.setItemText(2, _translate("adminWindow", "主楼以及活动中心"))
         self.feedLocBox.setItemText(3, _translate("adminWindow", "T3~T5"))
-        self.feedLocBox.setItemText(4, _translate("adminWindow", "T2、T6"))
+        self.feedLocBox.setItemText(4, _translate("adminWindow", "T2,T6"))
         self.feedLocBox.setItemText(5, _translate("adminWindow", "运动场"))
         self.feedLocBox.setItemText(6, _translate("adminWindow", "研究生教学区"))

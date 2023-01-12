@@ -57,7 +57,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QTableWidget" name="catTabel">
@@ -231,7 +231,7 @@
       </item>
       <item>
        <property name="text">
-        <string>T2、T6</string>
+        <string>T2,T6</string>
        </property>
       </item>
       <item>
@@ -409,7 +409,7 @@
       </item>
       <item>
        <property name="text">
-        <string>T2、T6</string>
+        <string>T2,T6</string>
        </property>
       </item>
       <item>

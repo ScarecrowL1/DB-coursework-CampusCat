@@ -166,15 +166,15 @@ class user(Ui_userWindow, QMainWindow):
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
 
 
-def sizeTables(self):
-    self.catTabel.setEditTriggers(QAbstractItemView.NoEditTriggers)
-    self.catTabel.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
-    self.catTabel.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+    def sizeTables(self):
+        self.catTabel.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.catTabel.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.catTabel.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
 
-    self.feedTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
-    self.feedTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
-    self.feedTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.feedTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.feedTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.feedTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
 
-    self.witnessTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
-    self.witnessTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
-    self.witnessTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.witnessTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.witnessTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.witnessTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)

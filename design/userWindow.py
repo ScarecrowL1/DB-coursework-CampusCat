@@ -158,7 +158,7 @@ class Ui_userWindow(object):
         userWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(userWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(userWindow)
 
     def retranslateUi(self, userWindow):
@@ -199,7 +199,7 @@ class Ui_userWindow(object):
         self.witLocBox.setItemText(1, _translate("userWindow", "荔园6~10栋"))
         self.witLocBox.setItemText(2, _translate("userWindow", "主楼以及活动中心"))
         self.witLocBox.setItemText(3, _translate("userWindow", "T3~T5"))
-        self.witLocBox.setItemText(4, _translate("userWindow", "T2、T6"))
+        self.witLocBox.setItemText(4, _translate("userWindow", "T2,T6"))
         self.witLocBox.setItemText(5, _translate("userWindow", "运动场"))
         self.witLocBox.setItemText(6, _translate("userWindow", "研究生教学区"))
         item = self.feedTable.horizontalHeaderItem(0)
@@ -224,7 +224,7 @@ class Ui_userWindow(object):
         self.feedLocBox.setItemText(1, _translate("userWindow", "荔园6~10栋"))
         self.feedLocBox.setItemText(2, _translate("userWindow", "主楼以及活动中心"))
         self.feedLocBox.setItemText(3, _translate("userWindow", "T3~T5"))
-        self.feedLocBox.setItemText(4, _translate("userWindow", "T2、T6"))
+        self.feedLocBox.setItemText(4, _translate("userWindow", "T2,T6"))
         self.feedLocBox.setItemText(5, _translate("userWindow", "运动场"))
         self.feedLocBox.setItemText(6, _translate("userWindow", "研究生教学区"))
         self.feedFoodBox.setItemText(0, _translate("userWindow", "猫粮1号"))
