@@ -3,6 +3,7 @@ from threading import Thread
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtWidgets import QMainWindow, QWidget, QMessageBox
 
+from admin import admin
 from loginWindow import Ui_Login
 
 from register import register
@@ -11,18 +12,23 @@ from database import dataBase
 
 import sys
 
+from user import user
+
 
 class login(Ui_Login, QMainWindow):
     sig = pyqtSignal(str)
 
     def __init__(self):
         super(login, self).__init__()
+
         self.setupUi(self)
         self.setWindowTitle("校园猫管理平台")
         self.activateButton()
         self.sig.connect(self.handler)
+
         self.registerWindow = None
         self.userState = None
+        self.nextWindow = None
 
     def activateButton(self):
         self.regButton.clicked.connect(self.register_)
@@ -69,10 +75,19 @@ class login(Ui_Login, QMainWindow):
             return
         if argv == 'pass':
             QMessageBox.information(self, '警告', '验证成功', QMessageBox.Ok)
-            # username = self.usernameEdit.text()
+            username = self.usernameEdit.text()
             # if self.admin == 1:
             #     self.main_window = adminMainWindow()
             # else:
             #     self.main_window = userMainWindow(username=username)
             # self.main_window.show()
             # self.close()
+            if self.userState == 1:
+                QMessageBox.information(self, '注意', '管理员用户', QMessageBox.Ok)
+                self.nextWindow = admin()
+            else:
+                QMessageBox.information(self, '注意', '普通用户', QMessageBox.Ok)
+                self.nextWindow = user(username=username)
+
+            self.nextWindow.show()
+            self.close()
