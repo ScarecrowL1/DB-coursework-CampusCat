@@ -43,3 +43,21 @@ class dataBase:
     def addAdmin(self, newAdminName):
         sql = "UPDATE `campuscat`.`userinfo` SET `userState` = '1' WHERE (`userName` = '{}');".format(newAdminName)
         self._cur.execute(sql)
+
+    def getCatView(self):
+        sql = "select * from catviewinfo"
+        count = self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return count, res
+
+    def getFeedView(self):
+        sql = "select * from feedview"
+        count = self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return count, res
+
+    def getWitView(self):
+        sql = "select * from witnessinfo"
+        count = self._cur.execute(sql)
+        res = self._cur.fetchall()
+        return count, res
