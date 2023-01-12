@@ -19,12 +19,15 @@ class user(Ui_userWindow, QMainWindow):
         self.username = username
         self.activateButton()
         self.fillBox()
+        self.sizeTables()
         self.sig_cat.connect(self.genCatTable)
         self.sig_wit.connect(self.genWitTable)
         self.sig_feed.connect(self.genFeedTable)
         self.showCat()
         self.showWitness()
         self.showFeed()
+
+
 
     def activateButton(self):
         self.catinfoBtn.clicked.connect(self.switch)
@@ -161,3 +164,17 @@ class user(Ui_userWindow, QMainWindow):
             for j in range(column):
                 item = self.feedTable.item(i, j)
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+
+
+def sizeTables(self):
+    self.catTabel.setEditTriggers(QAbstractItemView.NoEditTriggers)
+    self.catTabel.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+    self.catTabel.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+
+    self.feedTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+    self.feedTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+    self.feedTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+
+    self.witnessTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+    self.witnessTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+    self.witnessTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)

@@ -22,6 +22,7 @@ class admin(Ui_adminWindow, QMainWindow):
         self.sig_cat.connect(self.genCatTable)
         self.sig_wit.connect(self.genWitTable)
         self.sig_feed.connect(self.genFeedTable)
+        self.sizeTables()
         self.showCat()
         self.showWitness()
         self.showFeed()
@@ -202,4 +203,17 @@ class admin(Ui_adminWindow, QMainWindow):
         QMessageBox.information(self, '提示', '添加成功', QMessageBox.Ok)
 
         self.showFeed()
+
+    def sizeTables(self):
+        self.catTabel.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.catTabel.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.catTabel.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+
+        self.feedTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.feedTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.feedTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+
+        self.witnessTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.witnessTable.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        self.witnessTable.verticalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
 

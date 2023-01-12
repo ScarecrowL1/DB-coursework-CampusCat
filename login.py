@@ -1,6 +1,6 @@
 from threading import Thread
 
-from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QMainWindow, QWidget, QMessageBox
 
 from admin import admin
