@@ -52,6 +52,14 @@ class user(Ui_userWindow, QMainWindow):
         self.witCatNameBox.addItems(a[4] for a in cat)
         self.feedCatNameBox.addItems(a[4] for a in cat)
 
+        cnt, location = database.selectAll('location')
+        self.feedLocBox.addItems(a[1] for a in location)
+        self.witLocBox.addItems(a[1] for a in location)
+
+        cnt, food = database.selectAll('food')
+        self.feedFoodBox.addItems(a[1] for a in food)
+
+
     def addWitness(self):
         userName = self.username
         catName = self.witCatNameBox.currentText()

@@ -59,6 +59,17 @@ class admin(Ui_adminWindow, QMainWindow):
         self.witCatNameBox.addItems(a[4] for a in cat)
         self.feedCatBox.addItems(a[4] for a in cat)
 
+        cnt, location = database.selectAll('location')
+        self.addLocBox.addItems(a[1] for a in location)
+        self.feedLocBox.addItems(a[1] for a in location)
+        self.witLocBox.addItems(a[1] for a in location)
+
+        cnt, food = database.selectAll('food')
+        self.feedFoodBox.addItems(a[1] for a in food)
+
+        cmt, vac = database.selectAll('vacinfo')
+        self.addCatVacBox.addItems(a[1] for a in vac)
+
     def showCat(self):
         thread = Thread(target=self.getCatView())
         thread.start()
